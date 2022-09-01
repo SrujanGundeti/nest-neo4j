@@ -21,7 +21,7 @@ export class Neo4jModule {
                 },
                 {
                     provide: NEO4J_DRIVER,
-                    inject: [ NEO4J_OPTIONS ],
+                    inject: [NEO4J_OPTIONS],
                     useFactory: async (config: Neo4jConfig) => createDriver(config),
                 },
                 Neo4jService,
@@ -47,7 +47,7 @@ export class Neo4jModule {
                 } as Provider<any>,
                 {
                     provide: NEO4J_DRIVER,
-                    inject: [ NEO4J_OPTIONS ],
+                    inject: [NEO4J_OPTIONS],
                     useFactory: async (config: Neo4jConfig) => createDriver(config),
                 },
                 Neo4jService,
@@ -68,19 +68,19 @@ export class Neo4jModule {
             providers: [
                 {
                     provide: NEO4J_OPTIONS,
-                    inject: [ ConfigService ],
-                    useFactory: (configService: ConfigService) : Neo4jConfig => ({
+                    inject: [ConfigService],
+                    useFactory: (configService: ConfigService): Neo4jConfig => ({
                         scheme: configService.get('NEO4J_SCHEME'),
                         host: configService.get('NEO4J_HOST'),
                         port: configService.get('NEO4J_PORT'),
                         username: configService.get('NEO4J_USERNAME'),
                         password: configService.get('NEO4J_PASSWORD'),
-                        database: configService.get('NEO4J_DATABASE'),
+                        database: configService.get('NEO4J_DATABASE')
                     })
                 } as Provider<any>,
                 {
                     provide: NEO4J_DRIVER,
-                    inject: [ NEO4J_OPTIONS ],
+                    inject: [NEO4J_OPTIONS],
                     useFactory: async (config: Neo4jConfig) => createDriver(config),
                 },
                 Neo4jService,
