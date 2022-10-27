@@ -8,5 +8,5 @@ export interface Neo4jConfig {
     username: string;
     password: string;
     database?: string;
-    driverConfig?: types.Config
+    options?: types.Config
 }
